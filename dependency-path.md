@@ -1,8 +1,8 @@
-# Package path
+# Dependency path
 
-A path to a package with a specific set of resolved dependencies.
-Is always a valid filesystem path.
-This is mostly the same as the [package ID](package-id.md) but may differ when:
+A path to a dependency with a specific set of resolved subdependencies.
+It is always a valid filesystem path.
+It mostly equals the [package ID](package-id.md) of the dependency but may differ when:
 
 1. The package has peer dependencies which are resolved neither by its own dependencies nor with top dependencies.
 2. The package has dependencies with peer dependencies that are resolved from higher in the dependency tree.
