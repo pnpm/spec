@@ -39,20 +39,20 @@ pnpm recursive install -- foo bar @pnpm/config
 
 ### Selecting a package with dependencies
 
-To select a package and its dependencies, suffix the package name with two dots: `<pkg name>..`.
+To select a package and its dependencies (direct and non-direct), suffix the package name with 3 dots: `<pkg name>...`.
 For instance, the next command will run installation in all dependencies of `foo` and in `foo`:
 
 ```
-pnpm recursive install -- foo..
+pnpm recursive install -- foo...
 ```
 
 ### Selecting a package with dependents
 
-To select a package and its dependent packages, prefix the package name with two dots: `..<pkg name>`.
+To select a package and its dependent packages (direct and non-direct), prefix the package name with 3 dots: `...<pkg name>`.
 For instance, the next command will run installation in all dependents of `foo` and in `foo`:
 
 ```
-pnpm recursive install -- ..foo
+pnpm recursive install -- ...foo
 ```
 
 ### Selecting transitive packages
@@ -67,6 +67,6 @@ pnpm recursive install -- foo..bar
 
 ### Combining selectors
 
-Selecting all dependents and dependencies: `<cmd> -- ..<pkg>..`
+Selecting all dependents and dependencies: `<cmd> -- ...<pkg>...`
 
-Selecting dependencies of `pkg2` and transitive dependencies between `pkg1` ang `pkg2`: `<cmd> -- pkg1..pkg2..`
+Selecting dependencies of `pkg2` and transitive dependencies between `pkg1` ang `pkg2`: `<cmd> -- pkg1..pkg2...`
