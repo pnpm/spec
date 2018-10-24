@@ -6,6 +6,7 @@ The purpose of pnpm's shrinkwrap file is to freeze the state of `node_modules`. 
 
 | shrinkwrap file version | used by pnpm versions |
 | --   | --             |
+| 3.9 and 4.0  | >=2.17.0       |
 | 3.9  | >=2.13.3       |
 | 3.8  | >=2.8.0       |
 | 3.7  | >=2.0.0       |
