@@ -2,28 +2,15 @@
 
 These specs describe how pnpm commands behave inside workspaces (a.k.a. monorepos or multi-package repositories).
 
-By default, every pnpm command only affects the `package.json` and `node_modules` in the *current working directory*.
-So running `pnpm install foo` in the root of the workspace will only add `foo` to the `package.json` in the root of the monorepo.
-Likewise, running `pnpm install foo` in any package in any subfolder, will only add `foo` to the single package.
+# TL;DR
 
-In order to run a command on many packages of the workspace, filtering should be used.
-For instance, to perform installation in every package of the workspace, run `pnpm install -- .` in the root of the workspace
-(or `pnpm install -r`).
+1. Running `pnpm install` in the root will install dependencies of all workspace packages.
+1. Running `pnpm install express` in the root will add `express` as a dependency to the root `package.json` only.
+1. Running `pnpm install -r express` (or `pnpm install express -- .`) in the root will install express as dependency in all workspace packages.
 
-Let's see how it will work on the next workspace:
+***
 
-```
-.
-├─ pnpm-workspace.yaml
-├─ libs
-|  ├─ lib-a
-|  └─ lib-b
-└─ packages
-   ├─ pkg-a
-   └─ pkg-b
-package.json
-```
+If a command is executed without arguments (for instance, `pnpm install`) then the command affects every package in the workspace. It doesn't matter if the command is executed in the root of the workspace or in any subdirectory of the workspace.
 
-1. Running `pnpm install` in the root will only create `node_modules` for the root `package.json`.
-1. Running `pnpm install -r` (or `pnpm install -- .`) in the root will install dependencies of all workspace packages.
-1. Running `pnpm install -r` (or `pnpm install -- .`) in `libs/` directory will only install dependencies of `lib-a` and `lib-b`.
+If a command is executed with arguments (for instance, `pnpm install express`) then the command affects only the closest `package.json`. In order to run a command with arguments on many packages, filtering should be used. For instance, to perform installation in every package of the workspace, run `pnpm install express -- .` in the root of the workspace
+(or `pnpm install -r express`).
