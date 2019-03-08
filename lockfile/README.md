@@ -4,7 +4,7 @@ The purpose of pnpm's lockfile is to freeze the state of `node_modules`. It has 
 
 ## Relation of pnpm version to lockfile version
 
-| shrinkwrap file version | used by pnpm versions |
+| lockfile version | used by pnpm versions |
 | --   | --             |
 | 5.0  | >=3.0.0       |
 | 3.9 and 4.0  | >=2.17.0       |
