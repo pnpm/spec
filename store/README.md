@@ -3,4 +3,4 @@
 | store version | used by pnpm versions |
 | -- | -- |
 | 2  | 1,2,3,4  |
-| 3  | 5 |
+| 3  | 5,6,7 |
